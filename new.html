@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Lottery</title>
+    <style>
+        .container {
+            margin: 30px auto 0px auto;
+        }
+
+        .imeiSection,
+            {
+            padding: 50px;
+        }
+        .you-put-wrong-imei
+        {
+            display: none;
+            text-align: center;
+        }
+        .you-got-selfie-stick {
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cash-back-section container">
+        <img style="padding: 50px; width: 100%; height: 200px; border: 0.5px solid rgb(226, 221, 221);"
+            src="Image/oppo_f17.jpg" alt="">
+    </div>
+    <div id="imei-section" class="imeiSection container">
+        <input class="form-control" type="text" placeholder="Customer Name">
+        <br>
+        <input class="form-control" type="text" placeholder="Customer Number">
+        <br>
+        <input id="imei-number" class="form-control" type="text" placeholder="IMEI Number">
+        <br>
+        <button id="submit-btn" class="btn btn-success" type="submit">Submit</button>
+    </div>
+    <div id="selfie-stick" class="you-got-selfie-stick container">
+        <h1 style="color: orangered; ">
+            Congratulations
+        </h1>
+        <h3 style="color: orange;">
+            You got a: <span style="color: red;"> SELFIE STICK</span>
+        </h3>
+    </div>
+    <div id="wrong-stick" class="you-put-wrong-imei container">
+        <h1 style="color: orangered; ">
+            Dam
+        </h1>
+        <h3 style="color: orange;">
+            You put wrong imei: <span style="color: red;">Wrong IMEI</span>
+        </h3>
+    </div>
+
+    <script>
+        var imeiNumber = [
+            "000000",
+            "111111",
+            "222222",
+            "333333",
+            "444444",
+            "555555"
+        ];
+        const SubmitBtn = document.getElementById('submit-btn');
+        SubmitBtn.addEventListener("click", function () {
+            for (var i = 0; i < imeiNumber.length; i++) {
+                var element = imeiNumber[i];
+
+                const imeiValue = document.getElementById("imei-number").value;
+                if (element == imeiValue) {
+                    const imeiSection = document.getElementById("imei-section");
+                    imeiSection.style.display = "none";
+
+                    const selfieStick = document.getElementById("selfie-stick");
+                    selfieStick.style.display = "block";
+                } else {
+                    const imeiSection = document.getElementById("imei-section");
+                    imeiSection.style.display = "none";
+
+                    const selfieStick = document.getElementById("wrong-stick");
+                    selfieStick.style.display = "block";
+                }
+
+            }
+
+            // const imeiValue = document.getElementById("imei-number").value;
+            // if (imeiNumber === imeiValue) {
+            //     const imeiSection = document.getElementById("imei-section");
+            //     imeiSection.style.display = "none";
+
+            //     const selfieStick = document.getElementById("selfie-stick");
+            //     selfieStick.style.display = "block";
+            // } else {
+            //     const imeiSection = document.getElementById("imei-section");
+            //     imeiSection.style.display = "none";
+
+            //     const selfieStick = document.getElementById("fuck-stick");
+            //     selfieStick.style.display = "block";
+            // }
+        })
+    </script>
+</body>
+
+</html>
